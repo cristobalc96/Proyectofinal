@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 07-10-2019, 0:14:32
+    Document   : index1
+    Created on : 17-oct-2019, 21:41:46
     Author     : Cristobal
 --%>
 
@@ -9,21 +9,55 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>JSP Page</title>
+        <link rel="stylesheet" href="CSS/estiloindex.css">
+        
     </head>
+    
     <body>
-        <div align="center">
-            <hr>
-        <h1>Iniciar sesion</h1>
-        <form action="loginservidor" method="POST">
+
+<div class="login-box">
+      
+    <img src="img/logo.png" class="avatar" >
+      <h1>Iniciar sesion</h1>
+      
+      <form action="loginservidor" method="POST">
+        <!-- USERNAME INPUT -->
+        <label for="Ingrese Rut de empleado">Ingrese RUT</label>
+        <input type="text" name="txtusuario" placerholder="Ingrese su RUT">
+        <!-- PASSWORD INPUT -->
+        <label for="Clave">Password</label>
+        <input type="password" name="txtcontra" placerholder="Contraseña">
+        <!-- BOTON INICIAR SESION -->
+        <input type="submit" name="botoniniciar" placerholder="Iniciar sesion">
+     
+      </form>
+      
+</div> 
+        
+                <%
+           int area=0;
+            HttpSession sesion = request.getSession();
             
-            <input type="text" name="txtusuario" placerholder="Ingrese su RUT"><br>
-            <input type="text" name="txtcontraseña" placerholder="Contraseña"><br>
-            <br>
-            <input type="submit" name="botoniniciar" placerholder="Iniciar sesion"><br>
-            
-            
-        </form>
-        </div>
+           
+           
+         if(request.getAttribute("area")!=null ){
+                area = (Integer)request.getAttribute("area");
+                out.print(area);
+                
+                if(area == 2){
+                out.print(area);
+                    sesion.setAttribute("nombre", request.getAttribute("nombre"));
+                    sesion.setAttribute("area", area);
+                    response.sendRedirect("admin.jsp");
+                }else{
+                out.print("no ingreso");
+                }
+
+         }
+         
+         %>
+        
     </body>
+    
 </html>
