@@ -36,17 +36,30 @@ nombre = acc.usuario(RUT);
          <script> $(document).ready(function(){
              
     $('#controlempleados').click(function(){
-    $("#pagina").load("Vistas/Paginaprueba.jsp")});
+    $("#pagina").load("vistas/empleados.jsp")});
     
       $('#admindepartamentos').click(function(){
-    $("#pagina").load("Vistas/departamentos.jsp")});
+    $("#pagina").load("vistas/departamentos.jsp")});
+    
+          $('#cuentas').click(function(){
+    $("#pagina").load("vistas/cuentas.jsp")});
          
          }); 
     </script>
     
+    
+<script>
+
+	$(document).ready(function(e) {
+		$('#pagina').load('vistas/inicio.jsp', function(data) {
+			$(this).html(data);
+		});
+	});
+</script>
+    
     </head>
     
-    <body>
+    <body onload="load()">
   
         <div class="header">
             
@@ -58,7 +71,7 @@ nombre = acc.usuario(RUT);
   <a class="active" href="javascript:void(0)" id="inicio" > <i class="fa fa-fw fa-home"></i> Inicio</a>
   <a href="javascript:void(0)" id="controlempleados"> <i class="fa fa-fw fa-users"></i> Control de empleados</a>
   <a href="javascript:void(0)" id="admindepartamentos" > <i class="fa fa-fw fa-building"></i> Administracion de departamentos</a>
-  <a href="javascript:void(0)" > <i class="fa fa-fw fa-id-badge"></i> Administracion de cuentas</a>
+  <a href="javascript:void(0)" id="cuentas" > <i class="fa fa-fw fa-id-badge"></i> Administracion de cuentas</a>
   <a href="index.jsp"  > <i class="fa fa-fw fa-angle-down"></i> Cerrar sesion</a>
   
 </div>
@@ -66,26 +79,17 @@ nombre = acc.usuario(RUT);
         
         <div class="contenedor" id="pagina" > 
             
-            <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
-           <p> HOLA</p>
+
 
                
         </div>
         
-        <script src="controlador/main.js"></script>
+       
 
         
     </body>
+    
+     <script src="JS/main.js"></script>
+
+    
 </html>

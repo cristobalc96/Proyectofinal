@@ -19,7 +19,7 @@
 <div class="login-box">
       
     <img src="img/logo.png" class="avatar" >
-      <h1>Login</h1>
+      <h1>Departamento RRHH</h1>
       
       <form action="loginservidor" method="POST">
         <!-- USERNAME INPUT -->

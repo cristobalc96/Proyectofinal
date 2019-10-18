@@ -52,6 +52,7 @@ body {
 }
 
 #navbar a.active {
+  font-family: "San Francisco";
   background-color: grey;
   color: white;
 }
