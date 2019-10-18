@@ -1,16 +1,22 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(../img/background.jpg) no-repeat center top;
+  background: url(../img/blur.jpg) no-repeat center top;
   background-size: cover;
-  font-family: sans-serif;
+   font-family: "San Francisco";
   height: 100vh;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 25;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
 .login-box {
   width: 320px;
   height: 420px;
-  background: #000;
+  background: rgba(0,0,0,0.3);
   color: #fff;
   top: 50%;
   left: 50%;
@@ -34,18 +40,21 @@ body {
   padding: 0 0 20px;
   text-align: center;
   font-size: 22px;
+
 }
 
 .login-box label {
   margin: 0;
   padding: 0;
-  font-weight: bold;
+  font-weight: normal;
   display: block;
+
 }
 
 .login-box input {
   width: 100%;
   margin-bottom: 20px;
+
 }
 
 .login-box input[type="text"], .login-box input[type="password"] {

@@ -19,7 +19,7 @@
 <div class="login-box">
       
     <img src="img/logo.png" class="avatar" >
-      <h1>Iniciar sesion</h1>
+      <h1>Login</h1>
       
       <form action="loginservidor" method="POST">
         <!-- USERNAME INPUT -->
@@ -29,13 +29,14 @@
         <label for="Clave">Password</label>
         <input type="password" name="txtcontra" placerholder="Contraseña">
         <!-- BOTON INICIAR SESION -->
-        <input type="submit" name="botoniniciar" placerholder="Iniciar sesion">
+        <input type="submit" value="Iniciar sesion" name="botoniniciar" placerholder="Iniciar sesion">
      
       </form>
       
 </div> 
         
                 <%
+                    
            int area=0;
             HttpSession sesion = request.getSession();
             
@@ -43,15 +44,17 @@
            
          if(request.getAttribute("area")!=null ){
                 area = (Integer)request.getAttribute("area");
-                out.print(area);
                 
                 if(area == 2){
-                out.print(area);
+
                     sesion.setAttribute("nombre", request.getAttribute("nombre"));
                     sesion.setAttribute("area", area);
-                    response.sendRedirect("admin.jsp");
+                    response.sendRedirect("administrador.jsp");
+                    
                 }else{
+                    
                 out.print("no ingreso");
+                
                 }
 
          }
