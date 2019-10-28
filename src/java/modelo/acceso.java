@@ -1,5 +1,5 @@
 
-package clases;
+package modelo;
 
 import static java.lang.System.out;
 import java.sql.*;

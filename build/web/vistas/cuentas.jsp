@@ -13,6 +13,36 @@
           <style type="text/css"> @import "CSS/Estilo_empleados.css"; </style> 
     </head>
     <body>
-        <h1>cuentas</h1>
+        <div>
+            
+           <h1>cuentas</h1>  
+            
+           <table border="1">
+               <thead>
+                   <tr>
+                       <th>RUT</th>
+                       <th>NOMBRE</th>
+                       <th>EMAIL</th>
+                       <th>CONTRASEÑA</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                   </tr>
+               </tbody>
+           </table>
+
+           
+           
+            
+        </div>
+       
+        
+        
+        
     </body>
 </html>

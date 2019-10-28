@@ -11,7 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import clases.acceso;
+import modelo.acceso;
 import javax.servlet.RequestDispatcher;
 
 public class loginservidor extends HttpServlet {

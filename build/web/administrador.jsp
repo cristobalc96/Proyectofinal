@@ -1,4 +1,4 @@
-<%@page import="clases.acceso"%>
+<%@page import="modelo.acceso"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@page session="true" %>
 
@@ -29,67 +29,51 @@ nombre = acc.usuario(RUT);
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Software Administrativo RRHH</title>
-      <style type="text/css"> @import "CSS/Estilo.css"; </style> 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-         
-         <script> $(document).ready(function(){
-             
-    $('#controlempleados').click(function(){
-    $("#pagina").load("vistas/empleados.jsp")});
-    
-      $('#admindepartamentos').click(function(){
-    $("#pagina").load("vistas/departamentos.jsp")});
-    
-          $('#cuentas').click(function(){
-    $("#pagina").load("vistas/cuentas.jsp")});
-         
-         }); 
-    </script>
-    
-    
-<script>
-
-	$(document).ready(function(e) {
-		$('#pagina').load('vistas/inicio.jsp', function(data) {
-			$(this).html(data);
-		});
-	});
-</script>
-    
+      <style type="text/css"> @import "CSS/Estilo.css"; </style>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
+        <script type="text/javascript">
+            $(window).on('scroll',function(){
+    if ($(window).scrollTop()){
+        $('nav').addClass('black');
+        
+    }else{
+        $('nav').removeClass('black');
+    }
+})
+        </script>
+  
+  <!-- <script> $(document).ready(function(){$('#empleados').click(function(){$("#pagina").load("vistas/empleados.jsp")});     });   </script> -->
+        
     </head>
     
-    <body onload="load()">
+    <body>
   
-        <div class="header">
-            
-            <h1 style="float:right" > Bienvenid@ <%= nombre %>  </h1>
-           
-        </div>
-              
-<div id="navbar">
-  <a class="active" href="javascript:void(0)" id="inicio" > <i class="fa fa-fw fa-home"></i> Inicio</a>
-  <a href="javascript:void(0)" id="controlempleados"> <i class="fa fa-fw fa-users"></i> Control de empleados</a>
-  <a href="javascript:void(0)" id="admindepartamentos" > <i class="fa fa-fw fa-building"></i> Administracion de departamentos</a>
-  <a href="javascript:void(0)" id="cuentas" > <i class="fa fa-fw fa-id-badge"></i> Administracion de cuentas</a>
-  <a href="index.jsp"  > <i class="fa fa-fw fa-angle-down"></i> Cerrar sesion</a>
-  
-</div>
- 
         
-        <div class="contenedor" id="pagina" > 
+        <nav>
+            <div class="logo">
             
-
-
-               
-        </div>
-        
-       
+                <img src="img/Logo1.png" >
+                
+            </div>
+            <ul>
+                <li> <a href="vistas/inicio.jsp" target="formulario" class="active"> Inicio </a>  </li>
+                <li> <a  href="Controlador?accion=listado"X
+                            target="formulario" > Empleados </a>  </li>
+                <li> <a href="#"> Departamentos </a>  </li>
+                <li> <a href="#" > Cuentas </a>  </li>
+                <li> <a href="#" > Cerrar sesion  |  <%= nombre %> </a>  </li>
+            </ul>
+        </nav>
+            
+            <section class="home"></section> 
+            
+            <div class="principal">        
+                <iframe src="vistas/inicio.jsp" scrolling="no" style=" background: url(img/wallpaper.png); background-size: cover;" name="formulario"></iframe>
+            </div>
 
         
     </body>
     
      <script src="JS/main.js"></script>
-
     
 </html>
