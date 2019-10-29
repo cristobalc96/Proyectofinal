@@ -13,10 +13,37 @@ public class empleado {
 
     int id;
     String RUT;
+    int area;
+    String cargo;
+    String contrato;
     String nombre;
     String email;
     String contraseña; 
     
+    public int getArea() {
+        return area;
+    }
+
+    public void setArea(int area) {
+        this.area = area;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(String contrato) {
+        this.contrato = contrato;
+    }
+  
     public int getId() {
         return id;
     }
@@ -57,14 +84,16 @@ public class empleado {
         this.contraseña = contraseña;
     }
     
-
     
        public empleado() {
 
     }
        
-    public empleado(String RUT, String nombre, String email, String contraseña) {
+    public empleado(String RUT, int area, String cargo, String contrato , String nombre, String email, String contraseña) {
         this.RUT = RUT;
+        this.area = area;
+        this.cargo = cargo;
+        this.contrato = contrato;
         this.nombre = nombre;
         this.email = email;
         this.contraseña = contraseña;

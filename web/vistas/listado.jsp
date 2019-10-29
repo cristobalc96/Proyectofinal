@@ -21,8 +21,8 @@
     <body>
         <div  class="box">
             
-           <h1>cuentas</h1>  
-            
+           <h1>Administrar registros de empleados </h1>  
+           <a href="Controlador?accion=añadir">Agregar Nuevo empleado</a> 
            <table class="tabla" border="1">
                <thead>
                    <tr>
@@ -45,14 +45,14 @@
                
                <tbody>
                    <tr>
-                       <td>A  <%= emp.getId() %> </td>
-                       <td>B <%=  emp.getRUT() %> </td>
-                       <td>C <%=  emp.getNombre() %> </td>
-                       <td>D <%=  emp.getEmail() %> </td>
-                       <td>E <%=  emp.getContraseña() %> </td>                     
+                       <td> <%=  emp.getId() %> </td>
+                       <td> <%=  emp.getRUT() %> </td>
+                       <td> <%=  emp.getNombre() %> </td>
+                       <td> <%=  emp.getEmail() %> </td>
+                       <td> <%=  emp.getContraseña() %> </td>                     
                        <td> 
-                           <a>Editar</a>
-                           <a>Remover</a>
+                           <a href="Controlador?accion=editar&id=<%=emp.getId()%>">Editar </a>
+                           <a href="Controlador?accion=remover&id=<%=emp.getId()%>">Remover</a>
                        </td>
                    </tr>
                    <%}%>

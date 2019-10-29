@@ -59,9 +59,9 @@ nombre = acc.usuario(RUT);
                 <li> <a href="vistas/inicio.jsp" target="formulario" class="active"> Inicio </a>  </li>
                 <li> <a  href="Controlador?accion=listado"X
                             target="formulario" > Empleados </a>  </li>
-                <li> <a href="#"> Departamentos </a>  </li>
+                <li> <a href="Controlador?accion=añadir" target="formulario"> Departamentos </a>  </li>
                 <li> <a href="#" > Cuentas </a>  </li>
-                <li> <a href="#" > Cerrar sesion  |  <%= nombre %> </a>  </li>
+                <li> <a href="index.jsp" > Cerrar sesion  |  <%= nombre %> </a>  </li>
             </ul>
         </nav>
             

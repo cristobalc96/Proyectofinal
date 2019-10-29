@@ -12,6 +12,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.empleado;
+import modelo.empleadoDAO;
 
 /**
  *
@@ -23,7 +25,10 @@ public class Controlador extends HttpServlet {
         String listado="vistas/listado.jsp";
         String añadir="vistas/añadir.jsp";
         String editar="vistas/editar.jsp";
-    
+        empleado e=new empleado();
+        empleadoDAO dao=new empleadoDAO();
+        
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -56,9 +61,63 @@ public class Controlador extends HttpServlet {
         
         String acceso="";
         String action=request.getParameter("accion");
+        
         if(action.equalsIgnoreCase("listado")){
             acceso=listado;
+        }else if(action.equalsIgnoreCase("añadir")){
+            acceso=añadir;
+        }else if(action.equalsIgnoreCase("agregar")){
+            
+           String RUT=request.getParameter("txtRUT");
+           String Nombre=request.getParameter("txtNombre");
+           String Contraseña=request.getParameter("txtContraseña");
+           String Email=request.getParameter("txtEmail");
+           int Area = Integer.parseInt(request.getParameter("txtArea"));
+           String Cargo=request.getParameter("txtCargo");
+           String Contrato =request.getParameter("txtContrato");
+           e.setRUT(RUT);
+           e.setArea(Area);
+           e.setCargo(Cargo);
+           e.setContrato(Contrato);
+           e.setNombre(Nombre);
+           e.setEmail(Email);
+           e.setContraseña(Contraseña);
+          
+           dao.añadir(e);
+           
+           acceso=listado;
+           
+        }else if(action.equalsIgnoreCase("editar")){
+            request.setAttribute("idemp", request.getParameter("id"));
+            acceso=editar;
+            
+        }else if(action.equalsIgnoreCase("actualizar")){
+           int id= Integer.parseInt(request.getParameter("txtid"));
+           String RUT=request.getParameter("txtRUT");
+           String Nombre=request.getParameter("txtNombre");
+           String Contraseña=request.getParameter("txtContraseña");
+           String Email=request.getParameter("txtEmail");
+           int Area = Integer.parseInt(request.getParameter("txtArea"));
+           String Cargo=request.getParameter("txtCargo");
+           String Contrato =request.getParameter("txtContrato");
+           e.setId(id);
+           e.setRUT(RUT);
+           e.setArea(Area);
+           e.setCargo(Cargo);
+           e.setContrato(Contrato);
+           e.setNombre(Nombre);
+           e.setEmail(Email);
+           e.setContraseña(Contraseña);
+           
+           dao.editar(e);
+           acceso=listado;
+        }else if(action.equalsIgnoreCase("remover")){
+          int id= Integer.parseInt(request.getParameter("id")); 
+          e.setId(id);
+          dao.eliminar(id);
+          acceso = listado;
         }
+        
         
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
         vista.forward(request, response);
