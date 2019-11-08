@@ -13,10 +13,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Editar empleado</title>
+         <link href="./CSS/form.css" rel="stylesheet" type="text/css"/>
     </head>
+    
     <body>
-        <h1>Modificar empleado</h1>
+       
+        <label style="color: #fff; font-style: normal; font-family: Arial; font-size: 27px;">Modificar empleado</label>
+        
         <jsp:useBean id="cn" class="modelo.empleadoDAO" scope="page"></jsp:useBean>
         
         <%
@@ -30,7 +34,7 @@
             
          %>   
             
-         <form action="Controlador" style="background-color:#ffffff; text-align: center;">
+         <form action="Controlador" style="text-align: center;">
              
             RUT:<br>
             <input type="text" name="txtRUT" value="<%=e.getRUT()%>"> <br>
@@ -40,7 +44,7 @@
             <br>
             Area:
             <select name="txtArea">
-                <option>Seleccione nueva area</option>
+                <option>Seleccione nueva area </option>
                 <%
                 while(res.next()){ 
                 %>
@@ -52,7 +56,7 @@
             
             Cargo:
             <select name="txtCargo">
-                <option>Seleccione nuevo cargo (actual:<%=e.getCargo()%></option>
+                <option>Seleccione nuevo cargo</option>
                 <%
                 while(res1.next()){
                 %>
@@ -85,5 +89,6 @@
             <input type="submit" name="accion" value="actualizar" ><br>
             
         </form>
+        
     </body>
 </html>

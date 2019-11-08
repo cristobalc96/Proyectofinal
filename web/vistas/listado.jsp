@@ -14,16 +14,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Administracion de cuenta usuario</title>
-          <style type="text/css"> @import "CSS/Estilo_empleados.css"; </style> 
-          <style> .box{  border-radius: 15px; width: 96%; text-align:center; height: 96%; background: rgba(0,0,0,0.10); color: #fff; top: 50%; left: 50%; position: absolute; transform: translate(-50%, -50%); box-sizing: border-box; padding: 70px 30px;} 
-          </style>
+        <link href="./CSS/listado.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div  class="box">
+        <div id="contenedor-principal" class="box">
             
-           <h1>Administrar registros de empleados </h1>  
-           <a href="Controlador?accion=añadir">Agregar Nuevo empleado</a> 
-           <table class="tabla" border="1">
+            <label style="color: #fff; font-style: normal; font-family: Arial; font-size: 27px;">Administrar registros de empleados</label> <br> 
+            <a href="Controlador?accion=añadir" style="background: #297681; color: #fff; display: inline-block; margin: 20px; padding: 10px 0px; text-align: center; width: 200px; text-decoration: none; box-shadow: 0px 3pxp 0px #373c3c;">Agregar Nuevo empleado</a> <br>
+           <table>
                <thead>
                    <tr>
                        <th>ID</th>
@@ -31,6 +29,7 @@
                        <th>NOMBRE</th>
                        <th>EMAIL</th>
                        <th>CONTRASEÑA</th>
+                       <th></th>
                    </tr>
                </thead>
                
@@ -51,8 +50,8 @@
                        <td> <%=  emp.getEmail() %> </td>
                        <td> <%=  emp.getContraseña() %> </td>                     
                        <td> 
-                           <a href="Controlador?accion=editar&id=<%=emp.getId()%>">Editar </a>
-                           <a href="Controlador?accion=remover&id=<%=emp.getId()%>">Remover</a>
+                           <a id="boton2" style="font-size: 15px;" href="Controlador?accion=editar&id=<%=emp.getId()%>">Editar     </a>
+                           <a id="boton2" style="font-size: 15px;" href="Controlador?accion=remover&id=<%=emp.getId()%>">Remover</a>
                        </td>
                    </tr>
                    <%}%>

@@ -1,0 +1,29 @@
+body{
+   font-family: Arial;  
+   margin: 0;
+   color: white;
+   
+}
+
+form{
+  border-radius: 15px; 
+      width: 96%; 
+      text-align:center; 
+      height: 96%; 
+      background: rgba(0,0,0,0.10);  
+      top: 50%; 
+      left: 50%; 
+      position: absolute; 
+      transform: translate(-50%, -50%); 
+      box-sizing: border-box; 
+      padding: 70px 30px;
+}
+
+input{
+    width: 100%;
+    margin-bottom: 2opx;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border: none;
+}

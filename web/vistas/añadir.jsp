@@ -11,9 +11,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Registrar empleado</title>
+        <link href="./CSS/listado.css" rel="stylesheet" type="text/css"/>
     </head>
+   
     <body>
+        
+        <div id="contenedor-principal">
+            
         <h1>Registrar empleado</h1>
         <jsp:useBean id="cn" class="modelo.empleadoDAO" scope="page"></jsp:useBean>
         <%
@@ -22,13 +27,13 @@
             ResultSet rs2 = cn.mostrarcontrato();
          %>   
             
-         <form action="Controlador" style="background-color:#ffffff; text-align: center;" >
+         <form action="Controlador" style="background-color:#fff; text-align: center;" >
              
-            RUT:<br>
-            <input type="text" name="txtRUT"><br>
+            RUT:
+            <input type="text" name="txtRUT">
             
-            Nombre:<br>
-            <input type="text" name="txtNombre"><br>
+            Nombre:
+            <input type="text" name="txtNombre">
             
             Area:
             <select name="txtArea">
@@ -64,17 +69,20 @@
                 <% }
                   rs2.close();
                 %>
-            </select> <br>
+            </select> 
             
-            Email:<br>
-            <input type="text" name="txtEmail"><br>
+            Email:
+            <input type="text" name="txtEmail">
+          
+            Contraseña:
+            <input type="text"name="txtContraseña">
             
-            Contraseña:<br>
-            <input type="text"name="txtContraseña"><br>
             
-            
-            <input type="submit" name="accion" value="agregar"><br>
+            <input type="submit" name="accion" value="agregar">
             
         </form>
+            
+        </div>
+            
     </body>
 </html>
