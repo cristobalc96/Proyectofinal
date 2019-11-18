@@ -13,10 +13,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Editar empleado</title>
+         <link href="./CSS/form.css" rel="stylesheet" type="text/css"/>
     </head>
+    
     <body>
-        <h1>Modificar empleado</h1>
+       
+        
+        
         <jsp:useBean id="cn" class="modelo.empleadoDAO" scope="page"></jsp:useBean>
         
         <%
@@ -30,8 +34,8 @@
             
          %>   
             
-         <form action="Controlador" style="background-color:#ffffff; text-align: center;">
-             
+         <form action="Controlador" style="text-align: center;">
+             <label style="color: #fff; font-style: normal; font-family: Arial; font-size: 27px;">Modificar empleado</label><br>
             RUT:<br>
             <input type="text" name="txtRUT" value="<%=e.getRUT()%>"> <br>
             
@@ -39,8 +43,8 @@
             <input type="text" name="txtNombre" value="<%=e.getNombre()%>"><br>
             <br>
             Area:
-            <select name="txtArea">
-                <option>Seleccione nueva area</option>
+            <select name="txtArea" style="width: 30%; height: 20px;">
+                <option disabled>Seleccione nueva area </option>
                 <%
                 while(res.next()){ 
                 %>
@@ -52,7 +56,7 @@
             
             Cargo:
             <select name="txtCargo">
-                <option>Seleccione nuevo cargo (actual:<%=e.getCargo()%></option>
+                <option disabled>Seleccione nuevo cargo</option>
                 <%
                 while(res1.next()){
                 %>
@@ -64,7 +68,7 @@
             
             Contrato:
             <select name="txtContrato">
-                <option>Seleccione nuevo contrato</option>
+                <option disabled>Seleccione nuevo contrato</option>
                 <%
                 while(res2.next()){ 
                 %>
@@ -80,10 +84,11 @@
             Contraseña:<br>
             <input type="text" name="txtContraseña" value="<%=e.getContraseña()%>"><br>
             
-            <input type="hidden" name="txtid" value="<%=e.getId()%>">
+            <input type="hidden" name="txtid" value="<%=e.getId()%>"><br>
             
             <input type="submit" name="accion" value="actualizar" ><br>
             
         </form>
+        
     </body>
 </html>

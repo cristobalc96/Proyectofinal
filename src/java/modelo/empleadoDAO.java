@@ -25,15 +25,15 @@ public class empleadoDAO implements CRUD {
     PreparedStatement pst;
     ResultSet rs;
     empleado e=new empleado();
-    
-    
-    
+   
     @Override
     public List listado() {
+        
     ArrayList<empleado>list=new ArrayList<>();
     String sql="Select ID_empleado, RUT ,Nombre ,Email ,Contraseña from empleado";
      
     try{
+        
     Class.forName(db.getDriver());
     con=DriverManager.getConnection(db.getUrl(),db.getUser(),db.getContra());
     pst=con.prepareStatement(sql);
@@ -52,9 +52,7 @@ public class empleadoDAO implements CRUD {
     }catch(Exception e){
          
     }
-        return list;
-        
-        
+        return list;  
     }
 
     public ResultSet mostrarareas(){
@@ -74,16 +72,17 @@ public class empleadoDAO implements CRUD {
     }
     
     
-      public ResultSet mostrarcontrato(){
-        String sql="Select ID_contrato,Descripcion from contrato";
+    public ResultSet mostrarcontrato(){
+    String sql="Select ID_contrato,Descripcion from contrato";
+    
     try{
-        Class.forName(db.getDriver());
+    
+    Class.forName(db.getDriver());
     
     con=DriverManager.getConnection(db.getUrl(),db.getUser(),db.getContra());
     pst=con.prepareStatement(sql);
     rs=pst.executeQuery();
     
-
     }catch(Exception e){
         System.out.println(e);
     }    

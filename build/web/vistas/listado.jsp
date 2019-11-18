@@ -19,8 +19,8 @@
     <body>
         <div id="contenedor-principal" class="box">
             
-           <h1>Administrar registros de empleados</h1>  
-           <a href="Controlador?accion=añadir">Agregar Nuevo empleado</a> 
+            <label style="color: #fff; font-style: normal; font-family: Arial; font-size: 27px;">Administrar registros de empleados</label> <br> 
+            <a href="Controlador?accion=añadir" style="background: #297681; color: #fff; display: inline-block; margin: 20px; padding: 10px 0px; text-align: center; width: 200px; text-decoration: none; box-shadow: 0px 3pxp 0px #373c3c;">Agregar Nuevo empleado</a> <br>
            <table>
                <thead>
                    <tr>
@@ -50,8 +50,8 @@
                        <td> <%=  emp.getEmail() %> </td>
                        <td> <%=  emp.getContraseña() %> </td>                     
                        <td> 
-                           <a href="Controlador?accion=editar&id=<%=emp.getId()%>">Editar </a>
-                           <a href="Controlador?accion=remover&id=<%=emp.getId()%>">Remover</a>
+                           <a id="boton2" style="font-size: 15px;" href="Controlador?accion=editar&id=<%=emp.getId()%>">Editar     </a>
+                           <a id="boton2" style="font-size: 15px;" href="Controlador?accion=remover&id=<%=emp.getId()%>">Remover</a>
                        </td>
                    </tr>
                    <%}%>

@@ -21,13 +21,13 @@
     <img src="img/logo.png" class="avatar" >
       <h1>Departamento RRHH</h1>
       
-      <form action="loginservidor" method="POST">
+      <form action="loginservidor" method="GET">
         <!-- USERNAME INPUT -->
         <label for="Ingrese Rut de empleado">Ingrese RUT</label>
-        <input type="text" name="txtusuario" placerholder="Ingrese su RUT">
+        <input type="text" name="txtusuario" placerholder="Ingrese su RUT" required autofocus>
         <!-- PASSWORD INPUT -->
         <label for="Clave">Password</label>
-        <input type="password" name="txtcontra" placerholder="Contraseña">
+        <input type="password" name="txtcontra" placerholder="Contraseña" required>
         <!-- BOTON INICIAR SESION -->
         <input type="submit" value="Iniciar sesion" name="botoniniciar" placerholder="Iniciar sesion">
      
@@ -52,8 +52,8 @@
                     response.sendRedirect("administrador.jsp");
                     
                 }else{
-                    
-                out.print("no ingreso");
+                           
+                %> <div style='color:red'>Usuario o contraseña invalido <% out.print(area); %> </div> <%
                 
                 }
 

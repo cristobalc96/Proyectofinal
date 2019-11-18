@@ -12,6 +12,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.departamento;
+import modelo.departamentoDAO;
 import modelo.empleado;
 import modelo.empleadoDAO;
 
@@ -21,12 +23,19 @@ import modelo.empleadoDAO;
  */
 public class Controlador extends HttpServlet {
 
-
+        String listadodep="vistas/listado_departamentos.jsp";
+        String añadirdep="vistas/añadir_departamentos.jsp";
+        String eliminardep="vistas/eliminar_departamentos.jsp";
+        String editardep="vistas/editar_departamentos.jsp";
+        departamento d=new departamento();
+        departamentoDAO depdao=new departamentoDAO();
+        
         String listado="vistas/listado.jsp";
         String añadir="vistas/añadir.jsp";
         String editar="vistas/editar.jsp";
         empleado e=new empleado();
         empleadoDAO dao=new empleadoDAO();
+        
         
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -64,8 +73,11 @@ public class Controlador extends HttpServlet {
         
         if(action.equalsIgnoreCase("listado")){
             acceso=listado;
+            
         }else if(action.equalsIgnoreCase("añadir")){
             acceso=añadir;
+        }else if(action.equalsIgnoreCase("añadirdepartamento")){
+            acceso=añadirdep;
         }else if(action.equalsIgnoreCase("agregar")){
             
            String RUT=request.getParameter("txtRUT");
@@ -116,7 +128,61 @@ public class Controlador extends HttpServlet {
           e.setId(id);
           dao.eliminar(id);
           acceso = listado;
+          
+        //DEPARTAMENTOS  
+          
+        }else if(action.equalsIgnoreCase("listadodep")){
+            acceso=listadodep;
+            
+        }else if(action.equalsIgnoreCase("añadirdepartamento")){
+            
+            acceso=añadirdep;
+            
+        }else if(action.equalsIgnoreCase("agregardepartamento")){
+            
+           String id=request.getParameter("txtid");
+           String codigo=request.getParameter("txtcodigo");
+           String direccion=request.getParameter("txtdireccion");
+           int numero=Integer.parseInt(request.getParameter("txtnumero"));
+           d.setCodigociudad(codigo);
+           d.setDireccion(direccion);
+           d.setId(id);
+           d.setNumero(numero);
+    
+           depdao.añadir(d);
+           
+           acceso=listadodep;
+           
+        }else if(action.equalsIgnoreCase("editardepartamento")){
+            
+            request.setAttribute("idemp", request.getParameter("id"));
+            acceso=editardep;
+            
+        }else if(action.equalsIgnoreCase("actualizardepartamento")){
+            
+           String id=request.getParameter("txtid");
+           String codigo=request.getParameter("txtcodigo");
+           String direccion=request.getParameter("txtdireccion");
+           int numero=Integer.parseInt(request.getParameter("txtnumero"));
+           d.setCodigociudad(codigo);
+           d.setDireccion(direccion);
+           d.setId(id);
+           d.setNumero(numero);
+
+           depdao.editar(d);
+           
+           acceso=listadodep;
+           
+        }else if(action.equalsIgnoreCase("removerdepartamento")){
+            
+          String id=request.getParameter("txtid");
+          d.setId(id);
+          depdao.eliminar(id);
+          acceso = listado;
         }
+        
+        
+        
         
         
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
